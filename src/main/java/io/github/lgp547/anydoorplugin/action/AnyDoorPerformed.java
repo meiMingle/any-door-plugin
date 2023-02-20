@@ -37,7 +37,7 @@ public class AnyDoorPerformed {
         }
 
         AnyDoorSettingsState service = anyDoorSettingsStateOpt.get();
-        BiConsumer<String, Exception> openExcConsumer = (url, e) -> NotifierUtil.notifyError(project, "call " + url + " error [ " + e.getMessage() + " ]");
+        BiConsumer<String, Exception> openExcConsumer = (message, e) -> NotifierUtil.notifyError(project, String.format(message, e.getMessage()));
 
 
         if (paramTypeNameList.isEmpty()) {
